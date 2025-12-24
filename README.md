@@ -1,28 +1,26 @@
 # CPU Scheduling Algorithms Simulator (C)
 
-A modular **Operating Systems CPU scheduling simulator** written in **C**.  
-Given a workload file of tasks (**task name, priority, CPU burst**), the program simulates multiple classic CPU scheduling policies and reports scheduling results + average timing metrics.
-
-## Keywords (ATS-friendly)
-Operating Systems, CPU Scheduling, FCFS, SJF, Priority Scheduling, Round Robin, Time Quantum, Virtual CPU, C, Linked List, Modular Design, GCC, Makefile
+A C-based simulator for classic **Operating Systems CPU scheduling algorithms**.  
+The program reads a workload file of tasks (task name, priority, CPU burst) and simulates how different scheduling policies choose which task runs next. It also reports the **average turnaround time, waiting time, and response time** for each algorithm.
 
 ---
 
-## Scheduling Algorithms Implemented
-This repo includes separate implementations for:
-- **FCFS** (First Come, First Served)
+## Algorithms Implemented
+
+- **FCFS** (First-Come, First-Served)
 - **SJF** (Shortest Job First)
 - **Priority Scheduling**
 - **Round Robin (RR)** — time quantum = **10 ms**
-- **Priority + Round Robin** — RR within same priority
+- **Priority + Round Robin** — schedules by priority, and uses RR among tasks with the same priority
 
 ### Tie-breaking rule
-If tasks are tied (same burst for SJF or same priority for Priority / Priority+RR), tasks run **in the same order they appear in the input file**.
+If there are ties in **burst time** (SJF) or **priority** (Priority / Priority+RR), tasks execute **in the same order they appear in the input file**.
 
 ---
 
 ## Input Format
-The workload file is plain text, one task per line:
+
+Provide a text file (example: `schedule.txt`) with one task per line:
 
 ```text
 T1, 4, 20
